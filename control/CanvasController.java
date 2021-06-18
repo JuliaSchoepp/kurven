@@ -47,7 +47,7 @@ public class CanvasController {
 		for (int i =1; i<xtransf.length; i++) {
 			gc.lineTo(xtransf[i], ytransf[i]);
 		}
-		gc.closePath();
+		gc.closePath(); // wahrscheinlich Falsch, da Form geschlossen wird -> Linie zurück
 		gc.stroke();
 	}
 	

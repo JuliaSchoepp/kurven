@@ -14,33 +14,41 @@ public class Formula {
 	// Konstruktor
 	public Formula(DoubleUnaryOperator func) {
 		this.func = func;
-		this.xVals = calculateXVals();
+		this.xVals = calculateXValsTest();
 		this.yVals = calculateYVals();
 		
 	}
 	
-	// Array mit X-Werten erstellen (-100 bis 100, um etwas zu glätten)
-	private double[] calculateXVals() {
-		double[] xVals = new double[200];
-		double val = -100;
-		for (int i=0; i<200; i++) {
+	// Array mit X-Werten erstellen ("geglättet") --> Funktioniert noch nicht
+	private double[] calculateXValsTest() {
+		double[] xVals = new double[2000];
+		double val = -10;
+		// ggf. Problem mit ungenauigkeit von Doubles? -> vlt Array List und bei untersch. Länge letzten Wert verdoppeln/löschen?
+		for (int i=0; i<20; i += 0.01) {
 			xVals[i] = val;
 			val++;
 		}
 		return xVals;
 	}
 	
-	// Y Werte werden mit Hilfe der Formel erzeugt
+	// Array mit X-Werten erstellen (-10 bis 10 einschl.)
+		private double[] calculateXVals() {
+			double[] xVals = new double[21];
+			double val = -10;
+			for (int i=0; i<=20; i++) {
+				xVals[i] = val;
+				val++;
+			}
+			return xVals;
+		}
+	
+	// Y Werte werden mit Hilfe der Formel per Stream erzeugt
 	private double[] calculateYVals() {
 		double[] yVals = DoubleStream.of(this.xVals).map(func).toArray();
 		return yVals;
 	}
 	
-	// Getter, just in Case
-	public DoubleUnaryOperator getFunc() {
-		return func;
-	}
-
+	// Getter
 	public double[] getxVals() {
 		return xVals;
 	}
