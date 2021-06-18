@@ -14,24 +14,23 @@ public class Formula {
 	// Konstruktor
 	public Formula(DoubleUnaryOperator func) {
 		this.func = func;
-		this.xVals = calculateXValsTest();
+		this.xVals = calculateXValsSmooth();
 		this.yVals = calculateYVals();
 		
 	}
 	
-	// Array mit X-Werten erstellen ("geglättet") --> Funktioniert noch nicht
-	private double[] calculateXValsTest() {
+	// Array mit X-Werten erstellen ("geglättet")
+	private double[] calculateXValsSmooth() {
 		double[] xVals = new double[2000];
-		double val = -10;
-		// ggf. Problem mit ungenauigkeit von Doubles? -> vlt Array List und bei untersch. Länge letzten Wert verdoppeln/löschen?
-		for (int i=0; i<20; i += 0.01) {
-			xVals[i] = val;
+		double val = -1000;
+		for (int i=0; i<2000; i ++) {
+			xVals[i] = val/100;
 			val++;
 		}
 		return xVals;
 	}
 	
-	// Array mit X-Werten erstellen (-10 bis 10 einschl.)
+	// Array mit X-Werten erstellen (einfach; -10 bis 10 einschl.)
 		private double[] calculateXVals() {
 			double[] xVals = new double[21];
 			double val = -10;
