@@ -7,6 +7,12 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import model.Formula;
 
+/**
+ * Controller für die Zeichenfläche
+ * @author Wiener, Goldfuß, Schöpp
+ * @version 11.0.9, 06/2021
+ */
+
 public class CanvasController {
 	
 	private Canvas canvas;

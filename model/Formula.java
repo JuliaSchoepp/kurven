@@ -3,6 +3,11 @@ package model;
 import java.util.function.DoubleUnaryOperator;
 import java.util.stream.DoubleStream;
 
+/**
+ * Modell: Formel und Werte erstellen
+ * @author Wiener, Goldfuß, Schöpp
+ * @version 11.0.9, 06/2021
+ */
 
 public class Formula {
 	

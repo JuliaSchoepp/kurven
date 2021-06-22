@@ -13,6 +13,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+/**
+ * Hauptfenster
+ * @author Wiener, Goldfuß, Schöpp
+ * @version 11.0.9, 06/2021
+ */
+
 public class MainApp extends Application {
 	
 	private Stage primaryStage;
